@@ -1,26 +1,42 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Todo></Todo>
     </div>
   );
 }
+
+
+type todoitem = {
+  id: string;
+  content: string;
+  status: string;
+};
+
+function Todo() {
+  const [todo, settodo] = useState(Array<todoitem>());
+  const [input, setinput] = useState('');
+
+  return (
+    <>
+      <div>
+        Todo
+        <input
+          value={input}
+          onChange={(e) => setinput(e.target.value)}
+        ></input>
+        <button onClick={() => console.log('123')} > add item</button>
+      </div>
+    </>
+  );
+}
+
+
+
+
 
 export default App;
